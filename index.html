@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    const CARDS = [
+      { 
+        title: 'Canvas drag and drop', 
+        slug: 'canvas-drag-and-drop',
+        description: 'Aplicación en HTML Canvas para arrastrar, soltar y reordenar en zonas especificas con animaciones.'
+      }
+    ];
+  </script>
+</head>
+<body class="bg-[#13111c] text-gray-200 p-4">
+  <h1 class="text-3xl font-bold text-clifford mb-3 text-[#facc15]">
+    Lista completa
+  </h1>
+  <div 
+    id="exercises" 
+    class="
+      grid grid-cols-4 gap-2 
+      [&>a]:inline-block [&>a]:overflow-hidden [&>a]:p-2 [&>a]:bg-gradient-to-tr [&>a]:rounded-lg [&>a]:duration-300 hover:[&>a]:scale-105 [&>a]:bg-[#232131] [&>a]:shadow-lg [&>a]:shadow-gray-950/20 [&>a]:hover:shadow-gray-950/50
+      [&_img]:w-full [&_img]:rounded [&_img]:object-cover [&_img]:mb-1 [&_img]:aspect-video
+      [&_h2]:font-medium [&_h2]:text-center [&_h2]:text-sm
+    " 
+    style="grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));"
+  >
+  </div>
+
+  <script>
+    const IMAGE_PATH = './images'
+    const CONTAINER = document.getElementById('exercises');
+
+    // Renderizar cards
+    CARDS.forEach(data => {
+      const card = document.createElement('a');
+      card.href = data.slug + '.html';
+      card.title = data.description;
+
+      const img = document.createElement('img');
+      img.src = `${IMAGE_PATH}/${data.slug}.png`;
+      img.alt = data.title;
+
+      const title = document.createElement('h2');
+      title.textContent = data.title;
+
+      card.appendChild(img);
+      card.appendChild(title);
+      CONTAINER.appendChild(card);
+
+      // Eventos para intercambiar entre gif o png con hover
+      card.addEventListener('mouseover', () => {
+        if (img.src.endsWith('.png')) {
+          img.src = img.src.replace('.png', '.gif');
+        }
+      });
+      card.addEventListener('mouseout', () => {
+        if (img.src.endsWith('.gif')) {
+          img.src = img.src.replace('.gif', '.png');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
