@@ -40,13 +40,14 @@
   </div>
 
   <script>
+    const EXERCISES_PATH = './exercises'
     const IMAGE_PATH = './images'
     const CONTAINER = document.getElementById('exercises');
 
     // Renderizar cards
     CARDS.forEach(data => {
       const card = document.createElement('a');
-      card.href = data.slug + '.html';
+      card.href = `${EXERCISES_PATH}/${data.slug}.html`;
       card.title = data.description;
 
       const img = document.createElement('img');
