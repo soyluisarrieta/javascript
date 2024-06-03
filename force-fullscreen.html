@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forzar pantalla completa con clic</title>
+</head>
+<body>
+    <h1 id="fullscreen-status">No está en pantalla completa</h1>
+
+    <script>
+        document.addEventListener('click', function() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error al intentar entrar en modo de pantalla completa: ${err.message} (${err.name})`);
+                });
+            } /* else {
+              // Salir de pantalla completa
+                document.exitFullscreen().catch(err => {
+                    console.log(`Error al intentar salir del modo de pantalla completa: ${err.message} (${err.name})`);
+                });
+            }*/
+        });
+
+        document.addEventListener('fullscreenchange', function() {
+            const statusElement = document.getElementById('fullscreen-status');
+            if (document.fullscreenElement) {
+                statusElement.textContent = "En pantalla completa";
+                console.log('si',sizes());
+            } else {
+                statusElement.textContent = "No está en pantalla completa";                
+                console.log('no',sizes());
+            }
+        });
+
+        
+        // Get sizes
+        function sizes() {
+          const contentWidth = [...document.body.children].reduce( 
+            (a, el) => Math.max(a, el.getBoundingClientRect().right), 0) 
+            - document.body.getBoundingClientRect().x;
+
+          return {
+            windowWidth:  document.documentElement.clientWidth,
+            windowHeight: document.documentElement.clientHeight,
+            pageWidth:    Math.min(document.body.scrollWidth, contentWidth),
+            pageHeight:   document.body.scrollHeight,
+            screenWidth:  window.screen.width,
+            screenHeight: window.screen.height,
+            pageX:        document.body.getBoundingClientRect().x,
+            pageY:        document.body.getBoundingClientRect().y,
+            screenX:     -window.screenX,
+            screenY:     -window.screenY - (window.outerHeight-window.innerHeight),
+          }
+        }
+    </script>
+</body>
+</html>
