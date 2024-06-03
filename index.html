@@ -14,16 +14,23 @@
       }
     ];
   </script>
+  <style>
+    body {
+      background-color:#212228;
+      background-image: linear-gradient(rgb(43 44 40 / 40%) .1em, transparent .1em), 
+      linear-gradient(90deg, rgb(43 44 40 / 40%) .1em, transparent .1em);
+      background-size: 4em 4em;
+      min-height: 100svh;
+    }
+  </style>
 </head>
-<body class="bg-[#13111c] text-gray-200 p-4">
-  <h1 class="text-3xl font-bold text-clifford mb-3 text-[#facc15]">
-    Lista completa
-  </h1>
+<body class="text-gray-200 p-10">
+  <h1 class="text-center text-3xl font-bold text-clifford mb-7 text-[#facc15]">Lista completa de ejercicios en Javascript</h1>
   <div 
     id="exercises" 
     class="
       grid grid-cols-4 gap-2 
-      [&>a]:inline-block [&>a]:overflow-hidden [&>a]:p-2 [&>a]:bg-gradient-to-tr [&>a]:rounded-lg [&>a]:duration-300 hover:[&>a]:scale-105 [&>a]:bg-[#232131] [&>a]:shadow-lg [&>a]:shadow-gray-950/20 [&>a]:hover:shadow-gray-950/50
+      [&>a]:inline-block [&>a]:overflow-hidden [&>a]:p-2 [&>a]:bg-gradient-to-tr [&>a]:rounded-lg [&>a]:duration-300 hover:[&>a]:scale-105 [&>a]:bg-[#2c3042] [&>a]:shadow-lg [&>a]:shadow-gray-950/20 [&>a]:hover:shadow-gray-950/50
       [&_img]:w-full [&_img]:rounded [&_img]:object-cover [&_img]:mb-1 [&_img]:aspect-video
       [&_h2]:font-medium [&_h2]:text-center [&_h2]:text-sm
     " 

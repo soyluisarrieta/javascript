@@ -7,13 +7,18 @@
   <title>Drag and Drop Game</title>
   <style>
     body {
+      background-color:#212228;
+      background-image: linear-gradient(rgb(43 44 40 / 40%) .1em, transparent .1em), 
+      linear-gradient(90deg, rgb(43 44 40 / 40%) .1em, transparent .1em);
+      background-size: 4em 4em;
+      min-height: 100svh;
       margin: 0;
       padding: 0;
     }
 
     canvas {
       display: block;
-      background: #f0f0f0;
+      background: rgb(41 42 48 / 50%);
     }
 
     .canvas-container {
@@ -24,7 +29,8 @@
     }
 
     .canvas-container canvas {
-      border: 1px solid black;
+      border: 1px solid #5798c4;
+      border-radius: 1rem;
     }
   </style>
 </head>
@@ -38,7 +44,7 @@
     const CANVAS = document.getElementById('gameCanvas');
     const CTX = CANVAS.getContext('2d');
     const GLOBAL_ZONES = new Array(6).fill(null);
-    const COLORS = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF'];
+    const COLORS = ['#FF0000', '#00FF00', '#5798c4', '#FFFF00', '#FF00FF'];
     const BOXES = [];
     const ZONES = [];
     const BOX_SIZE = 70;
@@ -123,7 +129,7 @@
 
       // Dibujar la zona
       draw() {
-        CTX.strokeStyle = 'black';
+        CTX.strokeStyle = 'rgb(255 255 255 / 70%)';
         CTX.setLineDash([5, 3]);
         CTX.strokeRect(this.x, this.y, ZONE_SIZE, ZONE_SIZE);
         CTX.setLineDash([]);
@@ -173,7 +179,7 @@
       // Crear zonas
       for (let i = 0; i < GLOBAL_ZONES.length; i++) {
         const posX = (CANVAS.width / (GLOBAL_ZONES.length + 1)) * (i + 1) - (ZONE_SIZE / 2);
-        const zone = new Zone(posX, 300);
+        const zone = new Zone(posX, 470);
         ZONES.push(zone);
       }
       
