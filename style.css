@@ -12,7 +12,6 @@ body {
   min-height: 100svh;
   display: grid;
   place-content: center;
-  overflow: hidden;
 }
 
 canvas {
