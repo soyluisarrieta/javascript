@@ -3,9 +3,9 @@ import sizes from './getSizes.js'
 // Observar evento cuando cambia el fullscreen
 document.addEventListener('fullscreenchange', function () {
   if (document.fullscreenElement) {
-    console.log("En pantalla completa", sizes())
+    console.log('En pantalla completa', sizes())
   } else {
-    console.log("No está en pantalla completa", sizes())
+    console.log('No está en pantalla completa', sizes())
   }
 })
 
