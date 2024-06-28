@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas drag and drop</title>
+  <meta name="description" content="Aplicación en HTML Canvas para arrastrar, soltar y reordenar en zonas especificas con animaciones.">
+  <style>
+    body {
+      background-color: #212228;
+      background-image: linear-gradient(rgb(255 255 255 / 3%) .1em, transparent .1em),
+        linear-gradient(90deg, rgb(255 255 255 / 3%) .1em, transparent .1em);
+      background-size: 4em 4em;
+      min-height: 100svh;
+      margin: 0;
+      padding: 0;
+    }
+
+    canvas {
+      display: block;
+      backdrop-filter: blur(3px);
+    }
+
+    .canvas-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .canvas-container canvas {
+      background: rgba(46, 56, 77, 0.2);
+      box-shadow: 0 8px 20px 0 rgba(8, 8, 12, 0.25);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      border-radius: 10px;
+      border: 1px solid rgba(106, 122, 156, 0.18);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="canvas-container">
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+  </div>
+  <script src="canvas-drag-and-drop.js"></script>
+</body>
+
+</html>
